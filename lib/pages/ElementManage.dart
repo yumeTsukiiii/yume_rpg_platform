@@ -125,20 +125,20 @@ class ElementManage extends StatelessWidget {
                                     ])),
                                   ),
                                   Wrap(
-                                    spacing: 16,
-                                    children: [1, 2, 3, 4, 5].map((e) {
+                                    spacing: 8,
+                                    children: ['value: double', 'maxValue', 'minValue'].map((e) {
                                       // return TextField();
                                       return LayoutBuilder(builder: (context, constraint) {
                                         return Container(
-                                          width: (constraint.maxWidth - 16 * 2) / 3,
+                                          width: (constraint.maxWidth - 8 * 2) / 3,
                                           child: Card(
                                             child: Padding(
                                               padding: EdgeInsets.all(8),
                                               child: Column(
                                                 children: <Widget>[
-                                                  const ListTile(
-                                                    title: Text('The Enchanted Nightingale'),
-                                                    subtitle: Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
+                                                  ListTile(
+                                                    title: Text(e),
+                                                    subtitle: Text('是一个数据值数据值数据值数据值数据值这是一个数据值数据值数据值数据值数据值'),
                                                   ),
                                                   Row(
                                                     mainAxisAlignment: MainAxisAlignment.end,
