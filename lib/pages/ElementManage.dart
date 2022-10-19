@@ -67,15 +67,18 @@ class ElementManage extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.stretch,
                                 children: [
-                                  Padding(padding: EdgeInsets.only(bottom: 8), child: Text.rich(TextSpan(children: [
-                                    WidgetSpan(child: Icon(Icons.edit)),
-                                    TextSpan(
-                                        text: '基本信息',
-                                        style: TextStyle(
-                                          fontSize: 24,
-                                          fontWeight: FontWeight.bold,
-                                        ))
-                                  ])),),
+                                  Padding(
+                                    padding: EdgeInsets.only(bottom: 8),
+                                    child: Text.rich(TextSpan(children: [
+                                      WidgetSpan(child: Icon(Icons.edit)),
+                                      TextSpan(
+                                          text: '基本信息',
+                                          style: TextStyle(
+                                            fontSize: 24,
+                                            fontWeight: FontWeight.bold,
+                                          ))
+                                    ])),
+                                  ),
                                   Row(
                                     children: [
                                       Expanded(
@@ -108,6 +111,59 @@ class ElementManage extends StatelessWidget {
                                           border: OutlineInputBorder()),
                                       maxLines: 5,
                                     ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(bottom: 8, top: 16),
+                                    child: Text.rich(TextSpan(children: [
+                                      WidgetSpan(child: Icon(Icons.edit)),
+                                      TextSpan(
+                                          text: '数据配置',
+                                          style: TextStyle(
+                                            fontSize: 24,
+                                            fontWeight: FontWeight.bold,
+                                          ))
+                                    ])),
+                                  ),
+                                  Wrap(
+                                    spacing: 16,
+                                    children: [1, 2, 3, 4, 5].map((e) {
+                                      // return TextField();
+                                      return LayoutBuilder(builder: (context, constraint) {
+                                        return Container(
+                                          width: (constraint.maxWidth - 16 * 2) / 3,
+                                          child: Card(
+                                            child: Padding(
+                                              padding: EdgeInsets.all(8),
+                                              child: Column(
+                                                children: <Widget>[
+                                                  const ListTile(
+                                                    title: Text('The Enchanted Nightingale'),
+                                                    subtitle: Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
+                                                  ),
+                                                  Row(
+                                                    mainAxisAlignment: MainAxisAlignment.end,
+                                                    children: <Widget>[
+                                                      TextButton(
+                                                        child: const Text('删除', style: TextStyle(
+                                                          color: Colors.red
+                                                        ),),
+                                                        onPressed: () {/* ... */},
+                                                      ),
+                                                      const SizedBox(width: 8),
+                                                      TextButton(
+                                                        child: const Text('修改'),
+                                                        onPressed: () {/* ... */},
+                                                      ),
+                                                      const SizedBox(width: 8),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      });
+                                    }).toList(),
                                   )
                                 ],
                               ),
@@ -119,7 +175,7 @@ class ElementManage extends StatelessWidget {
                           onPressed: () {},
                           label: Text('新增元素'),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 )
